@@ -1,0 +1,18 @@
+{
+   "name":"Github Searcher",
+   "version":"0.0.1",
+   "manifest_version":2,
+   "description":"Search for a Github Profile.",
+   "homepage_url":"https://shubhamrajput.github.io/",
+   "icons":{
+      "16":"icons/icon16.png",
+      "48":"icons/icon48.png",
+      "128":"icons/icon128.png"
+   },
+   "browser_action":{
+      "default_icon":"icons/icon19.png",
+      "default_title":"Github Profle Searcher",
+      "default_popup":"popup.html"
+   }
+   
+}

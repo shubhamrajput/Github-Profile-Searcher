@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+   <head>
+      <script src="angular.min.js"></script>
+      <script src="script.js"></script>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <style>
+         body{
+         width: 350px;
+         min-height: 200px;
+         overflow: scroll;
+         }
+
+         img{
+         width: 70px;
+         height: 70px;
+         }
+
+
+          table td{
+            font-weight: bold;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+        }
+        
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            white-space: normal;
+            table-layout: fixed;
+            width: 350px;
+        }
+      </style>
+   </head>
+   <body ng-controller="MyCtrl">
+      <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+         <a class="navbar-brand" href="#" style="margin-left: 50px;">Github Profile Searcher</a>
+         <div class="col-lg-6">
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." ng-model="user" ng-keyup="fetchUser()">
+            </div>
+         </div>
+      </nav>
+      <div class="container" style="margin-top: 100px;" ng-show="keys.length>0">
+         <ul class="list-group">
+            <li class="list-group-item"><img ng-src={{result.avatar_url}}><strong><a href="{{result.html_url}}" target="_blank" style="margin-left: 30px;">{{result.name}}</a></strong></li>
+         </ul>
+      </div>
+      <table class="table" ng-show="repositories.length>0">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Description</th>
+            </tr>
+         </thead>
+         <tbody ng-repeat = "data in repositories">
+            <tr>
+               <td><a href="{{data.html_url}}" target="_blank">{{data.name}}</a></td>
+               <td>{{data.description || "-"}}</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>
